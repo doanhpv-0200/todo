@@ -1,0 +1,14 @@
+body {
+    overflow: hidden;
+}
+
+#content {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+        font-size: 5em;
+    }
+}

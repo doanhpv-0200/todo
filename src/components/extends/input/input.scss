@@ -1,0 +1,44 @@
+$bgYellow: #f5a623;
+$btnColorRed: #f25f43;
+$bgGreen: #7ed321;
+$subColorBlue: #14a1f0;
+
+.field {
+    &__message {
+        display: inline-block;
+        line-height: 25px;
+        margin-bottom: -5px;
+
+        span {
+            white-space: nowrap;
+        }
+
+        &--warning {
+            color: $bgYellow;
+        }
+
+        &--error {
+            color: $btnColorRed;
+        }
+
+        &--success {
+            color: $bgGreen;
+        }
+
+        &--note {
+            color: $subColorBlue;
+        }
+    }
+}
+
+
+.input-field {
+    line-height: 34px;
+    padding: 0 10px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+
+    &:focus {
+        border-color: #2aa1c0;
+    }
+}

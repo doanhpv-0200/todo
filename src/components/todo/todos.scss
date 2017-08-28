@@ -1,0 +1,12 @@
+.todos {
+    width: 75%;
+    max-width: 600px;
+    margin: 0 auto;
+    &--header {
+        display: flex;
+        justify-content: center;
+        font-size: 2em;
+        text-decoration: uppercase;
+        margin-bottom: 24px;
+    }
+}

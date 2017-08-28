@@ -1,0 +1,9 @@
+.todo__filter {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 12px;
+    &-item {
+        width: 200px;
+    }
+}

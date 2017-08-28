@@ -1,0 +1,24 @@
+.create-todo {
+    padding: 12px;
+    .new-button {
+        span {
+            padding: 0 4px;
+            font-size: 1em;
+            color: green;
+            border: 1px solid green;
+            cursor: pointer;
+            margin-right: 6px;
+        }
+    }
+
+    .button-group {
+        margin-top: 12px;
+        span {
+            padding: 4px 16px;
+            text-decoration: uppercase;
+            cursor: pointer;
+            margin-right: 12px;
+            border: 1px solid #CCC;
+        }
+    }
+}

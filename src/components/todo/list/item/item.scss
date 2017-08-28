@@ -1,0 +1,24 @@
+.todo__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // margin-bottom: 12px;
+    border-bottom: 1px dashed #CCC;
+    padding: 12px 8px;
+    label {
+        display: inline-flex;
+    }
+
+    .button-remove {
+        display: inline-flex;
+        justify-content: flex-end;
+        width: 50px;
+        cursor: pointer;
+        span {
+            color: red;
+            border: 1px solid red;
+            padding: 0px 6px;
+            font-size: 1em;
+        }
+    }
+}

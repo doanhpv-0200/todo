@@ -1,0 +1,17 @@
+.control--radio {
+    .control__indicator {
+        border-radius: 50%;
+        &:after {
+            left: 7px;
+            top: 7px;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: #fff;
+        }
+    }
+
+    input:disabled ~ .control__indicator:after {
+        background: #7b7b7b;
+    }
+}
