@@ -1,6 +1,9 @@
 import React from 'react';
 import _findIndex from 'lodash/findIndex';
 import _map from 'lodash/map';
+
+import {fetchTodoList, createTodo, updateTodo, deleteTodo} from 'src/api';
+
 import List from './list';
 import Filter from './filter';
 import Create from './create';
@@ -10,15 +13,7 @@ class Index extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            todos: [
-                {id: 1, name: 'Test todo 1', completed: false},
-                {id: 2, name: 'Test todo 2', completed: false},
-                {id: 3, name: 'Test todo 3', completed: true},
-                {id: 4, name: 'Test todo 4', completed: false},
-                {id: 5, name: 'Test todo 5', completed: false},
-                {id: 6, name: 'Test todo 6', completed: true},
-                {id: 7, name: 'Test todo 7', completed: false}
-            ],
+            todos: [],
             filter: 'SHOW_ALL'
         }
 
@@ -26,6 +21,12 @@ class Index extends React.Component {
         this.toggleTodo = this.toggleTodo.bind(this);
         this.handleAddTodo = this.handleAddTodo.bind(this);
         this.handleRemoveTodo = this.handleRemoveTodo.bind(this);
+    }
+
+    componentWillMount() {
+        fetchTodoList((response) => {
+            this.setState({todos: response.data})
+        });
     }
 
     onChangeFilter(filter) {
@@ -36,19 +37,18 @@ class Index extends React.Component {
         const todos = this.state.todos;
         let ids = _map(todos, 'id');
         let max = Math.max(...ids);
-        todos.push({
-            id: max+1,
-            name: text,
-            completed: false
+        createTodo({name: text, completed: false}, (response) => {
+            todos.push(response.data);
+            this.setState({todos});
         });
-
-        this.setState({todos});
     }
 
     handleRemoveTodo(id) {
         const todos = this.state.todos;
-        let filter = todos.filter(t => t.id !== id);
-        this.setState({todos: filter});
+        deleteTodo(id, (response) => {
+            let filter = todos.filter(t => t.id !== id);
+            this.setState({todos: filter});
+        })
     }
 
     toggleTodo(id) {
@@ -56,9 +56,10 @@ class Index extends React.Component {
         let index = _findIndex(todos, {id});
         if (index !== -1) {
             let todo = todos[index];
-            todo.completed = !todo.completed;
-            todos[index] = todo;
-            this.setState({todos});
+            updateTodo({id, completed: !todo.completed}, (response) => {
+                todos[index] = response.data;
+                this.setState({todos});
+            });
         }
     }
 

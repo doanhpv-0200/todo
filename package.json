@@ -13,6 +13,7 @@
     "start": "webpack-dev-server --config webpack.dev.js --open"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
