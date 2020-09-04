@@ -24,7 +24,7 @@
     "css-loader": "^0.28.5",
     "gh-pages": "^1.0.0",
     "html-webpack-plugin": "^2.30.1",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.13.1",
     "path": "^0.12.7",
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
